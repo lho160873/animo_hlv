@@ -88,11 +88,11 @@ public class User implements UserDetails {
     }
 
 
-    public Long getUserId() {
+    public Long getId() {
         return id != null ? id   : -1;
     }
 
-    public void setUserId(Long user_id) {
+    public void setId(Long user_id) {
         this.id = id;
     }
 
