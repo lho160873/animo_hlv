@@ -19,7 +19,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_key_gen"  )
     @SequenceGenerator(name = "id_key_gen", sequenceName = "users_user_id_seq", allocationSize=1)
     @Column(name = "user_id", unique = true, nullable = false)
-    private Long userId;
+    private Long id;
     @NotBlank(message = "Username cannot be empty")
     private String username;
     @NotBlank(message = "Password cannot be empty")
@@ -73,13 +73,13 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(userId, user.userId);
+        return Objects.equals(id, user.id);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(userId);
+        return Objects.hash(id);
     }
 
     public boolean isAdmin()
@@ -89,11 +89,11 @@ public class User implements UserDetails {
 
 
     public Long getUserId() {
-        return userId != null ? userId   : -1;
+        return id != null ? id   : -1;
     }
 
     public void setUserId(Long user_id) {
-        this.userId = userId;
+        this.id = id;
     }
 
     public String getUsername() {

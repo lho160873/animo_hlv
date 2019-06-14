@@ -16,7 +16,7 @@
                 <a class="nav-link" href="/main">Messages</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/user-messages/${userId}">My messages</a>
+                <a class="nav-link" href="/user-messages/${currentUserId}">My messages</a>
             </li>
         </#if>
             <#if isAdmin>
@@ -47,7 +47,7 @@
             </li>
 
         </ul>
-        <div class="navbar-text mr-3"><a href="/user/${userId}">${name}</a></div>
+        <div class="navbar-text mr-3"><a href="/user/${currentUserId}">${name}</a></div>
         <@l.logout />
     </div>
 </nav>
