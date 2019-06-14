@@ -12,9 +12,7 @@ import animo.repos.SubjAreaRepo;
 import animo.service.GraphService;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
-//import java.util.stream.Collectors;
 
 
 

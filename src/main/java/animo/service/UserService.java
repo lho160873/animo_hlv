@@ -51,12 +51,12 @@ public class UserService implements UserDetailsService
 
         userRepo.save(user);
 
-        sendMessage(user);
+        //sendMessage(user);
 
         return true;
     }
 
-    private void sendMessage(User user) {
+    /*private void sendMessage(User user) {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format(
                     "Hello, %s! \n" +
@@ -67,7 +67,7 @@ public class UserService implements UserDetailsService
 
             mailSender.send(user.getEmail(), "Activation code", message);
         }
-    }
+    }*/
 
     public boolean activateUser(String code) {
         User user = userRepo.findByActivationCode(code);
@@ -125,9 +125,9 @@ public class UserService implements UserDetailsService
 
         userRepo.save(user);
 
-        if (isEmailChanged) {
-            sendMessage(user);
-        }
+        //if (isEmailChanged) {
+         //   sendMessage(user);
+        //}
     }
 }
 

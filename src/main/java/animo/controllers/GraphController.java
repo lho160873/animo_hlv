@@ -1,17 +1,15 @@
 package animo.controllers;
 
+import animo.domain.SubjArea;
+import animo.repos.SubjAreaRepo;
+import animo.service.GraphService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import animo.common.TAnaliz;
-import animo.domain.SubjArea;
-import animo.repos.SubjAreaRepo;
-import animo.service.GraphService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
