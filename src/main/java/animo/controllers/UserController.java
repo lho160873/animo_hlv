@@ -1,16 +1,18 @@
 package animo.controllers;
 
-import animo.domain.Role;
-import animo.domain.User;
-import animo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import animo.domain.Role;
+import animo.domain.User;
+import animo.service.UserService;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Set;
 //import java.util.stream.Collectors;
 
 @Controller

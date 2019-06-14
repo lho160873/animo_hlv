@@ -4,11 +4,12 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Email;
 
 
 
@@ -19,7 +20,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_key_gen"  )
     @SequenceGenerator(name = "id_key_gen", sequenceName = "users_user_id_seq", allocationSize=1)
     @Column(name = "user_id", unique = true, nullable = false)
-    private Long id;
+    private Long userId;
     @NotBlank(message = "Username cannot be empty")
     private String username;
     @NotBlank(message = "Password cannot be empty")
@@ -73,13 +74,13 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id);
+        return Objects.equals(userId, user.userId);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id);
+        return Objects.hash(userId);
     }
 
     public boolean isAdmin()
@@ -88,12 +89,12 @@ public class User implements UserDetails {
     }
 
 
-    public Long getId() {
-        return id != null ? id   : -1;
+    public Long getUserId() {
+        return userId != null ? userId   : -1;
     }
 
-    public void setId(Long user_id) {
-        this.id = id;
+    public void setUserId(Long user_id) {
+        this.userId = userId;
     }
 
     public String getUsername() {

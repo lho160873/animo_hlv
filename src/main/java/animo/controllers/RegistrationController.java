@@ -1,23 +1,27 @@
 package animo.controllers;
 
-import animo.domain.User;
-import animo.domain.dto.CaptchaResponseDto;
-import animo.service.UserService;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
+import animo.domain.Role;
+import animo.domain.User;
+import animo.domain.dto.CaptchaResponseDto;
+import animo.repos.UserRepo;
+import animo.service.UserService;// UserSevice;
+import org.springframework.validation.BindingResult;
 
-import javax.validation.Valid;
 import java.util.Collections;
 import java.util.Map;
+
+import javax.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 
 @Controller
 public class RegistrationController {
