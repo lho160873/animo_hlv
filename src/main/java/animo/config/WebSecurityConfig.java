@@ -1,6 +1,6 @@
 package animo.config;
 
-import animo.service.UserService;
+import animo.service.UserSevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-        private UserService userSevice;
+        private UserSevice userSevice;
 
     @Autowired
     private PasswordEncoder passwordEncoder;

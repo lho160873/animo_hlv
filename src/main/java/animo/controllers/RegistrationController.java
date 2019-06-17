@@ -1,6 +1,5 @@
 package animo.controllers;
 
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
-import animo.domain.Role;
 import animo.domain.User;
 import animo.domain.dto.CaptchaResponseDto;
-import animo.repos.UserRepo;
-import animo.service.UserService;// UserSevice;
+import animo.service.UserSevice;// UserSevice;
 import org.springframework.validation.BindingResult;
 
 import java.util.Collections;
@@ -28,7 +25,7 @@ public class RegistrationController {
     private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
 
     @Autowired
-    private UserService userSevice;
+    private UserSevice userSevice;
 
     @Value("${recaptcha.secret}")
     private String secret;

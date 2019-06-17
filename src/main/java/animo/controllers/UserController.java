@@ -8,18 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import animo.domain.Role;
 import animo.domain.User;
-import animo.service.UserService;
+import animo.service.UserSevice;
 
-import java.util.Arrays;
 import java.util.Map;
-import java.util.Set;
 //import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userSevice;
+    private UserSevice userSevice;
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
