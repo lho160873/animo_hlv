@@ -237,12 +237,12 @@ public class GraphJdbc {
     //сортировка списка понятий по уровням (назначение уровней)
     public void sort_down( List<Map<String, Object>> lIdea, List<Map<String, Object>> lJoin, List<Map<String, Object>> lGraphIdea, List<Map<String, Object>> lGraphJoin, Boolean bDebug )
     {
-        Integer iLvl = 0;
+        short iLvl = 0;
         Integer iCount = 0;
 
         while (lIdea.size()>0)
         {
-            iLvl = iLvl + 1;
+            iLvl = (short)(iLvl + 1);
             iCount = lIdea.size();
             List<Object> lObj = new ArrayList<Object>();     //в этот массив будем складывать обработанные понятия
             for (Map<String, Object> elemIdea : lIdea) //перебираем все понятия
