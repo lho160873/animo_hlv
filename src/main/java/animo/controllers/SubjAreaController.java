@@ -1,9 +1,5 @@
 package animo.controllers;
 
-import animo.domain.Developer;
-import animo.domain.SubjArea;
-import animo.repos.DeveloperRepo;
-import animo.repos.SubjAreaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import animo.domain.Developer;
+import animo.domain.SubjArea;
+import animo.repos.SubjAreaRepo;
+
+import animo.domain.Developer;
+import animo.repos.DeveloperRepo;
 
 import java.io.IOException;
 import java.util.List;

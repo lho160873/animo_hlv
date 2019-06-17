@@ -1,19 +1,20 @@
 package animo.domain;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Message {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank(message = "Please fill the message")
     @Length(max = 2048, message = "Message too long (more than 2kB)")
     private String text;
+
     @Length(max = 255, message = "Message too long (more than 255)")
     private String tag;
 
@@ -23,13 +24,12 @@ public class Message {
 
     private String filename;
 
-    public Message() {
+    public String getFilename() {
+        return filename;
     }
 
-    public Message(String text, String tag, User user) {
-        this.author = user;
-        this.text = text;
-        this.tag = tag;
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 
     public String getAuthorName() {
@@ -44,12 +44,13 @@ public class Message {
         this.author = author;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public Message() {
     }
 
-    public String getText() {
-        return text;
+    public Message(String text, String tag, User user) {
+        this.author = user;
+        this.text = text;
+        this.tag = tag;
     }
 
     public Long getId() {
@@ -60,19 +61,19 @@ public class Message {
         this.id = id;
     }
 
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public String getTag() {
         return tag;
     }
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public String getFilename() {
-        return filename;
-    }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
     }
 }

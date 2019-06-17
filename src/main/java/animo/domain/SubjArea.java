@@ -14,8 +14,8 @@ public class SubjArea {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_key_gen_subj_area"  )
-    @SequenceGenerator(name = "id_key_gen_subj_area", sequenceName = "subj_area_subj_area_id_seq", allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_key_gen"  )
+    @SequenceGenerator(name = "id_key_gen", sequenceName = "subj_area_subj_area_id_seq", allocationSize=1)
 
     @Column(name = "subj_area_id", unique = true, nullable = false)
     private Integer subjAreaId;
