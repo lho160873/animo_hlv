@@ -39,7 +39,7 @@ public class SubjAreaController {
         model.addAttribute("subjAreas", subjAreas);
         model.addAttribute("developers", developers);
 
-        return "subjareaList";
+        return "subjAreaList";
     }
 
     @PostMapping("/subjarea")
@@ -67,7 +67,7 @@ public class SubjAreaController {
         model.put("developers", developers);
 
 
-        return "subjareaList";
+        return "subjAreaList";
     }
 
     @GetMapping("/subjareaDel/{subjArea}")
