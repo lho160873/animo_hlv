@@ -46,7 +46,7 @@ public class Developer {
     }
 
     public String getComment() {
-        return comment != null ? comment   : "<none>";
+        return comment != null ? comment   : "";
     }
 
 

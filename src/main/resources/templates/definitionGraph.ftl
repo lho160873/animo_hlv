@@ -1,5 +1,3 @@
-
-
 <#import "parts/common.ftl" as c>
 
 
@@ -13,21 +11,22 @@
 
 <h1>Схема</h1>
 
-
+<form method="get" action="/definitionGraph" class="form-inline">
 <div class="form-row">
-    <div class="form-group col-md-6">
-        <form method="get" action="/definitionGraph" class="form-inline">
+    <div class="col-sm">
+
             <select class="form-control"  name="subjAreaId"  >
                 <option value="" selected disabled hidden>Выберете предметную область</option>
                 <#list subjAreaList as subjArea>
                     <option <#if subjAreaId??><#if subjAreaId == subjArea.subjAreaId >selected</#if></#if> value=${subjArea.subjAreaId}>${subjArea.name}</option>>
                 </#list>
             </select>
-            <button class="btn btn-primary ml-2" type="submit">Построить</button>
-        </form>
     </div>
-
+    <div class="col-sm">
+            <button class="btn btn-primary ml-2" type="submit">Построить</button>
+    </div>
 </div>
+</form>
 
 
 <div id="container"></div>

@@ -93,7 +93,7 @@ public class DefinitionTblController {
                               Map<String, Object> model )throws IOException {
 
         definitionTblRepo.delete(definition);
-        return "redirect:/definition";
+        return "redirect:/definition?subjAreaId="+definition.getSubjAreaId().toString();
     }
 
 
