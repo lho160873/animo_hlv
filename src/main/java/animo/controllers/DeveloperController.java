@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import animo.domain.Developer;
@@ -46,19 +47,19 @@ public class DeveloperController {
 
 
         developerRepo.save(developer);
-        Iterable<Developer> developers = developerRepo.findAll();
+
+        /*Iterable<Developer> developers = developerRepo.findAll();
         model.put("developers", developers);
-        return "developerList";
+        return "developerList";*/
+        return "redirect:/developer";
     }
 
 
-    @PostMapping("/developerDel")
-    public String developerDel(@RequestParam Integer developerId,
+    @GetMapping("/developerDel/{developer}")
+    public String developerDel(@PathVariable Developer developer,
                                Map<String, Object> model )throws IOException {
 
-        List<Developer> developerForDel = developerRepo.findByDeveloperId(developerId);
-        developerRepo.deleteAll(developerForDel);
-
+        developerRepo.delete(developer);
         return "redirect:/developer";
 
     }

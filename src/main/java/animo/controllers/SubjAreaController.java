@@ -61,20 +61,19 @@ public class SubjAreaController {
 
         subjAreaRepo.save(subjArea);
 
-        Iterable<SubjArea> subjAreas = subjAreaRepo.findAll();
+        /*Iterable<SubjArea> subjAreas = subjAreaRepo.findAll();
         model.put("subjAreas", subjAreas);
         Iterable<Developer> developers = developerRepo.findAll();
-        model.put("developers", developers);
+        model.put("developers", developers);*/
 
 
-        return "subjAreaList";
+        //return "subjAreaList";
+        return "redirect:/subjarea";
     }
 
     @GetMapping("/subjareaDel/{subjArea}")
     public String subjareaDel(@PathVariable SubjArea subjArea,
                                Map<String, Object> model )throws IOException {
-
-        //List<SubjArea> subjAreaForDel = subjAreaRepo.findBySubjAreaId(subjAreaId);
         subjAreaRepo.delete(subjArea);
 
         return "redirect:/subjarea";

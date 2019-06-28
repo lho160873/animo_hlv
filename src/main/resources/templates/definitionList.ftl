@@ -60,10 +60,14 @@
     </div>
 </div>
 
+<form method="get" class="form-inline">
+
 
 <div class="form-row">
-    <div class="form-group col-md-6">
-        <form method="get" class="form-inline">
+
+
+
+                <div class="col-sm">
 
             <select class="form-control"  name="subjAreaId"  >
                 <option value="" selected disabled hidden>Выберете предметную область</option>
@@ -71,11 +75,20 @@
                     <option <#if subjAreaId??><#if subjAreaId == subjArea.subjAreaId >selected</#if></#if> value=${subjArea.subjAreaId}>${subjArea.name}</option>>
                 </#list>
             </select>
-            <button class="btn btn-primary ml-2" type="submit" formaction="/definition">Поиск</button>
+
+                </div>
+                <div class="col-sm">
+                <button class="btn btn-primary ml-2" type="submit" formaction="/definition">Поиск</button>
+                </div>
+
+                <div class="col-sm">
             <button class="btn btn-primary ml-2" type="submit" formaction="/definitionCalc">Запустить Анализ</button>
-        </form>
-    </div>
-</div>
+                </div>
+            </div>
+</form>
+
+
+
 <p>
 ${test?ifExists}
 </p>
@@ -97,7 +110,8 @@ ${test?ifExists}
         <th>Понятие</th>
         <th>Определение</th>
         <th>Номер уровня</th>
-
+        <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -106,6 +120,8 @@ ${test?ifExists}
             <td>${definition.name}</td>
             <td>${definition.description}</td>
             <td>${definition.numUrov}</td>
+            <td>${definition.idn?string("0")}</td>
+            <td><a href="/definitionDel/${definition.idn?string("0")}">Удалить</a> </td>
         </tr>
         </#list>
     </tbody>

@@ -24,7 +24,6 @@
             <th>Определение</th>
             <th>Предметная область</th>
             <th>Автор</th>
-            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -34,7 +33,6 @@
                 <td>${definition.description}</td>
                 <td>${definition.subjArea.name}</td>
                 <td>${definition.subjArea.developer.fio}</td>
-                <td><a href="/definitionDel/${definition.idn}">Удалить</a> </td>
             </tr>
         </#list>
         </tbody>

@@ -93,8 +93,11 @@ public class DefinitionTblController {
                               Map<String, Object> model )throws IOException {
 
         definitionTblRepo.delete(definition);
-        return "redirect:/definitionFind";
+        return "redirect:/definition";
     }
+
+
+
 
 
 

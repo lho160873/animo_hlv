@@ -4,10 +4,12 @@
     <h1>Список предментых областей</h1>
 <br/>
 
+<div class="mb-3">
 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
    aria-controls="collapseExample">
     Добавить новый предмет
 </a>
+    </div>
 
 <div class="collapse" id="collapseExample">
     <div class="form-group mt-3">
@@ -27,13 +29,16 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Отменить
+                </button>
             </div>
         </form>
     </div>
 </div>
 
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Предмет</th>
