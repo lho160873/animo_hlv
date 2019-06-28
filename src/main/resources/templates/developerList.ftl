@@ -45,6 +45,7 @@
             <th>ФИО</th>
             <th>Комментарий</th>
             <th></th>
+            <th></th>
 
         </tr>
         </thead>
@@ -53,9 +54,13 @@
             <tr>
                 <td>${developer.fio}</td>
                 <td>${developer.comment}</td>
-                <td><a href="/developerDel/${developer.developerId}">Удалить</a>&nbsp&nbsp&nbsp&nbsp
-                    <a href="#edit${developer.developerId}" data-toggle="modal">Редактировать</a>
-
+                <td><a href="/developerDel/${developer.developerId}">Удалить</a></td>
+                <td>
+                    <!--<a href="#edit${developer.developerId}" data-toggle="modal">Редактировать</a>-->
+                    <a  data-toggle="collapse" href="#collapseEdit${developer.developerId}" role="button" aria-expanded="false"
+                       aria-controls="collapseEdit">
+                        Редактировать
+                    </a>
                     <div id="edit${developer.developerId}" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -90,6 +95,40 @@
                 </td>
 
             </tr>
+
+
+        <tr class="collapse" id="collapseEdit${developer.developerId}">
+            <form method="post" enctype="multipart/form-data" action="/developerEdit">
+                <td>
+                    <input name="developerId" type="hidden" value=${developer.developerId}>
+                    <input name="fio" class="form-control" type="text" placeholder="ФИО" value=${developer.fio}>
+                </td>
+
+                <td>
+                    <input name="comment" class="form-control" type="text" placeholder="Комментарий"
+                           value=${developer.comment}>
+                </td>
+
+                <td>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                </td>
+
+                <td>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse"
+                            data-target="#collapseEdit${developer.developerId}" aria-expanded="false"
+                            aria-controls="collapseEdit">
+                        Отменить
+                    </button>
+                </td>
+            </form>
+
+        </tr>
+
+
+
+
+
         </#list>
         </tbody>
     </table>

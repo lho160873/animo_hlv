@@ -8,65 +8,11 @@
 
 
 
-<div id="frmAdd" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Заголовок модального окна -->
-            <div class="modal-header">
-                <h4 class="modal-title">Понятие - добавление</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <!-- Основное содержимое модального окна -->
-            <div class="modal-body">
-                <div class="form-group mt-3">
-                    <form method="get" enctype="multipart/form-data" action="/definitionAdd">
-                        <div class="form-group">
-                            <select class="form-control"  name="subjAreaId"  >
-                                <option value="" selected disabled hidden>Выберете предметную область</option>
-                                <#list subjAreaList as subjArea>
-                                    <option <#if subjAreaId??><#if subjAreaId == subjArea.subjAreaId >selected</#if></#if> value=${subjArea.subjAreaId}>${subjArea.name}</option>>
-                                </#list>
-                            </select>
-                        </div>
 
-                        <div class="form-group">
-                            <input name="name" class="form-control" type="text" placeholder="Понятие">
-                        </div>
-                        <div class="form-group">
-                            <label for="taDescription">Определение</label>
-                            <textarea class="form-control" name="description"  id = "taDescription" rows="6"></textarea>
-                        </div>
 
-                        <!--<div class="form-group">
-                            <input name="description" class="form-control" type="text" placeholder="Определение">
-                        </div>-->
-
-                        <input type="hidden" name="_csrf" value="${_csrf.token}">
-
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Сохранить</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-            <!-- Футер модального окна
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                <button type="button" class="btn btn-primary">Сохранить изменения</button>
-            </div>-->
-        </div>
-    </div>
-</div>
 
 <form method="get" class="form-inline">
-
-
-<div class="form-row">
-
-
-
+    <div class="form-row">
                 <div class="col-sm">
 
             <select class="form-control"  name="subjAreaId"  >
@@ -89,11 +35,55 @@
 
 
 
-<p>
-${test?ifExists}
+<p class="text-muted font-italic">
+    &nbsp${test?ifExists}
 </p>
 
-<a href="#frmAdd" class="btn btn-primary" data-toggle="modal">Добавить новое понятие</a>
+
+
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+   aria-controls="collapseExample">
+    Добавить новое поняти
+</a>
+
+<div class="collapse" id="collapseExample">
+    <div class="form-group mt-3">
+        <form method="get" enctype="multipart/form-data" action="/definitionAdd">
+            <div class="form-group">
+                <select class="form-control"  name="subjAreaId"  >
+                    <option value="" selected disabled hidden>Выберете предметную область</option>
+                    <#list subjAreaList as subjArea>
+                        <option <#if subjAreaId??><#if subjAreaId == subjArea.subjAreaId >selected</#if></#if> value=${subjArea.subjAreaId}>${subjArea.name}</option>>
+                    </#list>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input name="name" class="form-control" type="text" placeholder="Понятие">
+            </div>
+            <div class="form-group">
+                <label for="taDescription">Определение</label>
+                <textarea class="form-control" name="description"  id = "taDescription" rows="6"></textarea>
+            </div>
+
+            <!--<div class="form-group">
+                <input name="description" class="form-control" type="text" placeholder="Определение">
+            </div>-->
+
+            <input type="hidden" name="_csrf" value="${_csrf.token}">
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Отменить
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
 <nav aria-label="Страницы">
     <ul class="pagination justify-content-center">
         <li class="page-item"><a class="page-link" href="#">Предыдущая</a></li>
@@ -104,13 +94,12 @@ ${test?ifExists}
     </ul>
 </nav>
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
     <thead>
     <tr>
         <th>Понятие</th>
         <th>Определение</th>
         <th>Номер уровня</th>
-        <th></th>
         <th></th>
     </tr>
     </thead>
@@ -120,7 +109,6 @@ ${test?ifExists}
             <td>${definition.name}</td>
             <td>${definition.description}</td>
             <td>${definition.numUrov}</td>
-            <td>${definition.idn?string("0")}</td>
             <td><a href="/definitionDel/${definition.idn?string("0")}">Удалить</a> </td>
         </tr>
         </#list>
