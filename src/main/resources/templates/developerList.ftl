@@ -2,7 +2,6 @@
 
 <@c.page>
     <h1>Список авторов</h1>
-<br/>
 
 <div class="collapse" id="collapseExample">
     <div class="form-group mt-3">

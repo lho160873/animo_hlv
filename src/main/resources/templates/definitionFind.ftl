@@ -2,7 +2,6 @@
 
 <@c.page>
     <h1>Понятие</h1>
-<br/>
 
 
 <div class="form-row">
@@ -17,7 +16,7 @@
 
 
 
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Понятие</th>

@@ -2,7 +2,6 @@
 
 <@c.page>
     <h1>Список предментых областей</h1>
-<br/>
 
 <div class="mb-3">
 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"

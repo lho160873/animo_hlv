@@ -2,8 +2,6 @@
 
 <@c.page>
 <h1>Список всех понятий</h1>
-<br/>
-
 
 <form method="get" class="form-inline">
     <div class="form-row">
